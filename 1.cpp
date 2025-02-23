@@ -1,24 +1,20 @@
-// Write a program in C++ to display a pattern like a right angle triangle using an asterisk.
-// Sample Output:
-// Input number of rows: 5
-// *
-// **
-// ***
-// ****
-// *****
+// Write a C++ program to reverse a given string.
+// Example:
+// Sample Input: helloworld
+// Sample Output: dlrowolleh
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main(){
-    int n;
-    cout << "Input number of rows: ";
-    cin >> n;
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= i; j++){
-            cout << "*";
-        }
-        cout << endl;
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    cout << "Reversed string: ";
+    for (int i = str.length() - 1; i >= 0; i--) {
+        cout << str[i];
     }
+    cout << endl;
     return 0;
 }
