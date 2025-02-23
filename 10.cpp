@@ -1,23 +1,34 @@
+// Write a program in C++ to display the pyramid pattern using the alphabet.
+// Sample Output:
+// Input the number of Letters (less than 26) in the Pyramid: 5
+// A
+// A B A
+// A B C B A
+// A B C D C B A
+// A B C D E D C B A
+
 #include <iostream>
 using namespace std;
 
-int main(){
-    int start, n, diff;
-    cout << "Input the starting number of the A.P. series: ";
-    cin >> start;
-    cout << "Input the number of items for the A.P. series: ";
+int main() {
+    int n;
+    cout << "Input the number of Letters (less than 26) in the Pyramid: ";
     cin >> n;
-    cout << "Input the common difference of A.P. series: ";
-    cin >> diff;
-    cout << "The Sum of the A.P. series are :" << endl;
-    int sum = 0;
-    for(int i = 0; i < n; i++){
-        cout << start + i * diff;
-        sum += start + i * diff;
-        if(i < n - 1){
-            cout << " + ";
-        }
+    if (n > 26) {
+        cout << "Please enter a number less than or equal to 26." << endl;
+        return 1;
     }
-    cout << " = " << sum << endl;
+    for (int i = 1; i <= n; i++) {
+        for (int j = i; j < n; j++) {
+            cout << " ";
+        }
+        for (int j = 0; j < i; j++) {
+            cout << char('A' + j) << " ";
+        }
+        for (int j = i - 2; j >= 0; j--) {
+            cout << char('A' + j) << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }

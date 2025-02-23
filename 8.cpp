@@ -1,15 +1,26 @@
+// Write a C++ program to print a pattern in which the highest number of columns appears in the first row.
+// Sample Output:
+// Input the number of rows: 5
+// 12345
+// 2345
+// 345
+// 45
+// 5
+
 #include <iostream>
 using namespace std;
 
-int main(){
-    cout << "Numbers between 100 and 200, divisible by 9:" << endl;
-    int sum = 0;
-    for(int i = 100; i <= 200; i++){
-        if(i % 9 == 0){
-            cout << i << " ";
-            sum += i;
+int main() {
+    int rows;
+    cout << "Input the number of rows: ";
+    cin >> rows;
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = i + 1; j <= rows; j++) {
+            cout << j;
         }
+        cout << endl;
     }
-    cout << endl << "The sum: " << sum << endl;
+
     return 0;
 }
