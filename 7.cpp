@@ -1,30 +1,34 @@
-// Write a C++ program to display Pascal's triangle like a right angle triangle.
-// Sample Output:
-// Input number of rows: 7
-// 1
-// 1 1
-// 1 2 1
-// 1 3 3 1
-// 1 4 6 4 1
-// 1 5 10 10 5 1
-// 1 6 15 20 15 6 1
+// Write a C++ program that removes a specific character from a given string. Return the updated string.
+// Test Data:
+// ("Filename", "e") -> "Filnam"
+// ("Compilation Time", "i") -> "Complaton Tme"
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main() {
-    int rows;
-    cout << "Input number of rows: ";
-    cin >> rows;
+string removeCharacter(string str, char ch) {
+    string result = "";
 
-    for (int i = 0; i < rows; i++) {
-        int number = 1;
-        for (int j = 0; j <= i; j++) {
-            cout << number << " ";
-            number = number * (i - j) / (j + 1);
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] != ch) {
+            result += str[i];
         }
-        cout << endl;
     }
 
+    return result;
+}
+
+int main() {
+    string str;
+    char ch;
+
+    str = "Filename";
+    ch = 'e';
+    cout << "Updated string: " << removeCharacter(str, ch) << endl;
+
+    str = "Compilation Time";
+    ch = 'i';
+    cout << "Updated string: " << removeCharacter(str, ch) << endl;
     return 0;
 }

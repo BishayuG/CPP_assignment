@@ -1,28 +1,53 @@
-// Write a C++ program to make such a pattern, like a pyramid, with a repeating number.
-// Sample Output:
-// Input number of rows: 5
-//             1
-//            2 2
-//           3 3 3
-//          4 4 4 4
-//         5 5 5 5 5
+// Write a C++ program to find a word in a given string that has the highest number of repeated letters.
+// Example:
+// Sample Input: Print a welcome text in a separate line.
+// Sample Output: Word which has the highest number of repeated letters. Separate
 
 #include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-int main() {
-    int rows;
-    cout << "Input number of rows: ";
-    cin >> rows;
-
-    for (int i = 1; i <= rows; i++) {
-        for (int j = 1; j <= rows - i; j++) {
-            cout << " ";
+int main()
+{
+    string s;
+    getline(cin, s);
+    vector<string> words;
+    string word = "";
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (s[i] == ' ')
+        {
+            words.push_back(word);
+            word = "";
         }
-        for (int k = 1; k <= (2 * i - 1); k++) {
-            cout << i;
+        else
+        {
+            word += s[i];
         }
-        cout << endl;
     }
+    words.push_back(word);
+    int max = 0;
+    string maxWord = "";
+    for (int i = 0; i < words.size(); i++)
+    {
+        string temp = words[i];
+        sort(temp.begin(), temp.end());
+        int count = 1;
+        for (int j = 0; j < temp.size(); j++)
+        {
+            if (temp[j] == temp[j + 1])
+            {
+                count++;
+            }
+        }
+        if (count > max)
+        {
+            max = count;
+            maxWord = words[i];
+        }
+    }
+    cout << maxWord << endl;
     return 0;
 }

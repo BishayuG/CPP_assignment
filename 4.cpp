@@ -1,28 +1,32 @@
-// Write a C++ program to make such a pattern like a pyramid with an asterisk.
-// Sample Output:
-// Input number of rows: 5
-//      *
-//     * *
-//    * * *
-//   * * * *
-//  * * * * *
+// Write a C++ program to check if a given string is a Palindrome or not.
+// A palindrome is a word, number, phrase, or other sequence of characters which
+// reads the same backward as forward, such as madam, racecar.
+// Example:
+// Sample Input: madam
+// Sample Output: True
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
-    int rows;
-    cout << "Input number of rows: ";
-    cin >> rows;
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
 
-    for (int i = 1; i <= rows; i++) {
-        for (int j = 1; j <= rows - i; j++) {
-            cout << " ";
+    int n = str.length();
+    bool isPalindrome = true;
+    for (int i = 0; i < n / 2; i++) {
+        if (str[i] != str[n - i - 1]) {
+            isPalindrome = false;
+            break;
         }
-        for (int k = 1; k <= (2 * i - 1); k++) {
-            cout << "*";
-        }
-        cout << endl;
+    }
+
+    if (isPalindrome) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
     }
 
     return 0;
