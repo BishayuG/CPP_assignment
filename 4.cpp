@@ -1,24 +1,19 @@
-// Write a C++ program to verify that all of the letters in the second string appear in the first string as well. Return true otherwise false.
 #include <iostream>
-#include <string>
 using namespace std;
 
-bool containsAllLetters(const string &s1, const string &s2) {
-    // Simple case-sensitive check
-    for (char c : s2) {
-        if (s1.find(c) == string::npos) {
-            return false;
-        }
+int main(){
+    int n;
+    cout << "Input number of terms to display: ";
+    cin >> n;
+    int a = 0, b = 1;
+    cout << "Here is the Fibonacci series upto to " << n << " terms:" << endl;
+    cout << a << " ";
+    for(int i = 1; i < n; i++){
+        cout << b << " ";
+        int temp = b;
+        b += a;
+        a = temp;
     }
-    return true;
-}
-
-int main() {
-    string first = "Python";
-    string second = "Py";
-
-    bool result = containsAllLetters(first, second);
-    cout << boolalpha << result << endl;
-
+    cout << endl;
     return 0;
 }
