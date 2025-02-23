@@ -1,33 +1,30 @@
-// Write a C++ program to check if a given string is a Palindrome or not.
-// A palindrome is a word, number, phrase, or other sequence of characters which
-// reads the same backward as forward, such as madam, racecar.
-// Example:
-// Sample Input: madam
-// Sample Output: True
+// Write a C++ program to find the smallest element missing from a sorted array.
 
 #include <iostream>
-#include <string>
 using namespace std;
 
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    cin >> str;
-
-    int n = str.length();
-    bool isPalindrome = true;
-    for (int i = 0; i < n / 2; i++) {
-        if (str[i] != str[n - i - 1]) {
-            isPalindrome = false;
-            break;
+int findSmallestMissingElement(int arr[], int n)
+{
+    int low = 0, high = n - 1;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] != mid)
+        {
+            if (mid == 0 || arr[mid - 1] == mid - 1)
+                return mid;
+            high = mid - 1;
         }
+        else
+            low = mid + 1;
     }
+    return -1;
+}
 
-    if (isPalindrome) {
-        cout << "True" << endl;
-    } else {
-        cout << "False" << endl;
-    }
-
+int main()
+{
+    int arr[] = {0, 1, 2, 6, 9, 11, 15};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << "The smallest missing element is " << findSmallestMissingElement(arr, n);
     return 0;
 }
