@@ -2,21 +2,14 @@
 using namespace std;
 
 int main(){
-    int year, month;
-    cout << "Enter the year: ";
-    cin >> year;
-    cout << "Enter the month: ";
-    cin >> month;
-    if(month == 2){
-        if(year % 4 == 0){
-            cout << "Number of days of the year " << year << " and month " << month << " is: 29" << endl;
-        } else {
-            cout << "Number of days of the year " << year << " and month " << month << " is: 28" << endl;
+    cout << "Numbers between 100 and 200, divisible by 9:" << endl;
+    int sum = 0;
+    for(int i = 100; i <= 200; i++){
+        if(i % 9 == 0){
+            cout << i << " ";
+            sum += i;
         }
-    } else if(month == 4 || month == 6 || month == 9 || month == 11){
-        cout << "Number of days of the year " << year << " and month " << month << " is: 30" << endl;
-    } else {
-        cout << "Number of days of the year " << year << " and month " << month << " is: 31" << endl;
     }
+    cout << endl << "The sum: " << sum << endl;
     return 0;
 }

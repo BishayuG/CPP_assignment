@@ -1,23 +1,22 @@
-// Write a C++ program to capitalize the first character of each element of a given string vector.
 #include <iostream>
-#include <vector>
-#include <cctype>
 using namespace std;
 
-int main() {
-    vector<string> colors = {"red", "green", "black", "white", "Pink"};
-
-    for (auto &word : colors) {
-        if (!word.empty()) {
-            word[0] = toupper(word[0]);
+int main(){
+    int n;
+    cout << "Input a number to find the last prime number occurs before the number: ";
+    cin >> n;
+    for(int i = n - 1; i > 1; i--){
+        bool isPrime = true;
+        for(int j = 2; j * j <= i; j++){
+            if(i % j == 0){
+                isPrime = false;
+                break;
+            }
+        }
+        if(isPrime){
+            cout << i << " is the last prime number before " << n << endl;
+            break;
         }
     }
-
-    cout << "Capitalized Vector:" << endl;
-    for (auto &w : colors) {
-        cout << w << " ";
-    }
-    cout << endl;
-
     return 0;
 }

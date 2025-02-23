@@ -1,21 +1,23 @@
-// Write a C++ program to create an n x n matrix by taking an integer (n) as input from the user.
 #include <iostream>
-#include <vector>
 using namespace std;
 
-int main() {
+int main(){
     int n;
-    cout << "Enter an integer n: ";
+    cout << "Input the upperlimit: ";
     cin >> n;
-
-    vector<vector<int>> matrix(n, vector<int>(n, n));
-
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            cout << matrix[i][j] << " ";
+    cout << "The non-prime numbers are:" << endl;
+    for(int i = 2; i <= n; i++){
+        bool isPrime = true;
+        for(int j = 2; j * j <= i; j++){
+            if(i % j == 0){
+                isPrime = false;
+                break;
+            }
         }
-        cout << endl;
+        if(!isPrime){
+            cout << i << " ";
+        }
     }
-
+    cout << endl;
     return 0;
 }

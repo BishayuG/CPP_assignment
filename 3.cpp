@@ -1,30 +1,21 @@
-// Write a C++ program that takes a vector of strings and returns only those strings that contain a number(s).
 #include <iostream>
-#include <vector>
+#include <cmath>
 using namespace std;
 
-bool containsDigit(const string &s) {
-    for (char c : s) {
-        if (isdigit(c)) return true;
-    }
-    return false;
-}
-
-int main() {
-    vector<string> vec = {"red", "green23", "1black", "white"};
-    vector<string> result;
-
-    for (auto &str : vec) {
-        if (containsDigit(str)) {
-            result.push_back(str);
+int main(){
+    int n;
+    cout << "Input number of terms: ";
+    cin >> n;
+    int sum = 0;
+    int term = 0;
+    for(int i = 0; i < n; i++){
+        term = term * 10 + 1;
+        sum += term;
+        cout << term;
+        if(i < n - 1){
+            cout << " + ";
         }
     }
-
-    cout << "Strings that contain a number(s):" << endl;
-    for (auto &r : result) {
-        cout << r << " ";
-    }
-    cout << endl;
-
+    cout << endl << "The sum of the series is: " << sum << endl;
     return 0;
 }

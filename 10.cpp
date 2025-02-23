@@ -2,18 +2,22 @@
 using namespace std;
 
 int main(){
-    int number;
-    cout << "Enter any number: ";
-    cin >> number;
-    while(number > 9){
-        int temp = number;
-        int sum = 0;
-        while(temp != 0){
-            sum += temp % 10;
-            temp /= 10;
+    int start, n, diff;
+    cout << "Input the starting number of the A.P. series: ";
+    cin >> start;
+    cout << "Input the number of items for the A.P. series: ";
+    cin >> n;
+    cout << "Input the common difference of A.P. series: ";
+    cin >> diff;
+    cout << "The Sum of the A.P. series are :" << endl;
+    int sum = 0;
+    for(int i = 0; i < n; i++){
+        cout << start + i * diff;
+        sum += start + i * diff;
+        if(i < n - 1){
+            cout << " + ";
         }
-        number = sum;
     }
-    cout << "The sum of all the digits of the number is: " << number << endl;
+    cout << " = " << sum << endl;
     return 0;
 }
