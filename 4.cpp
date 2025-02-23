@@ -1,19 +1,29 @@
+// Write a C++ program to make such a pattern like a pyramid with an asterisk.
+// Sample Output:
+// Input number of rows: 5
+//      *
+//     * *
+//    * * *
+//   * * * *
+//  * * * * *
+
 #include <iostream>
 using namespace std;
 
-int main(){
-    int n;
-    cout << "Input number of terms to display: ";
-    cin >> n;
-    int a = 0, b = 1;
-    cout << "Here is the Fibonacci series upto to " << n << " terms:" << endl;
-    cout << a << " ";
-    for(int i = 1; i < n; i++){
-        cout << b << " ";
-        int temp = b;
-        b += a;
-        a = temp;
+int main() {
+    int rows;
+    cout << "Input number of rows: ";
+    cin >> rows;
+
+    for (int i = 1; i <= rows; i++) {
+        for (int j = 1; j <= rows - i; j++) {
+            cout << " ";
+        }
+        for (int k = 1; k <= (2 * i - 1); k++) {
+            cout << "*";
+        }
+        cout << endl;
     }
-    cout << endl;
+
     return 0;
 }

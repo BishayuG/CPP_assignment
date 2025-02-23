@@ -1,21 +1,25 @@
+// Write a C++ program to make such a pattern like a right angle triangle with the number increased by 1.
+// Sample Output:
+// Input number of rows: 4
+// 1
+// 2 3
+// 4 5 6
+// 7 8 9 10
+
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 int main(){
     int n;
-    cout << "Input number of terms: ";
+    cout << "Input number of rows: ";
     cin >> n;
-    int sum = 0;
-    int term = 0;
-    for(int i = 0; i < n; i++){
-        term = term * 10 + 1;
-        sum += term;
-        cout << term;
-        if(i < n - 1){
-            cout << " + ";
+    int counter = 1;
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= i; j++){
+            cout << counter << " ";
+            counter++;
         }
+        cout << endl;
     }
-    cout << endl << "The sum of the series is: " << sum << endl;
     return 0;
 }
