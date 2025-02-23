@@ -1,21 +1,21 @@
-// Write a C++ program to implement a recursive function to check if a given string is a palindrome.
+// Write a C++ program to create an n x n matrix by taking an integer (n) as input from the user.
 #include <iostream>
-#include <string>
+#include <vector>
 using namespace std;
 
-bool isPalindrome(const string &s, int start, int end) {
-    if (start >= end) return true;
-    if (s[start] != s[end]) return false;
-    return isPalindrome(s, start + 1, end - 1);
-}
-
 int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
+    int n;
+    cout << "Enter an integer n: ";
+    cin >> n;
 
-    bool result = isPalindrome(str, 0, str.size() - 1);
-    cout << boolalpha << result << endl;
+    vector<vector<int>> matrix(n, vector<int>(n, n));
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }

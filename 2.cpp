@@ -1,16 +1,23 @@
-// Write a C++ program to calculate the factorial of a given number using recursion.
+// Write a C++ program to capitalize the first character of each element of a given string vector.
 #include <iostream>
+#include <vector>
+#include <cctype>
 using namespace std;
 
-long long factorial(int n) {
-    if (n <= 1) return 1;
-    return n * factorial(n - 1);
-}
-
 int main() {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << "Factorial of " << num << " is " << factorial(num) << endl;
+    vector<string> colors = {"red", "green", "black", "white", "Pink"};
+
+    for (auto &word : colors) {
+        if (!word.empty()) {
+            word[0] = toupper(word[0]);
+        }
+    }
+
+    cout << "Capitalized Vector:" << endl;
+    for (auto &w : colors) {
+        cout << w << " ";
+    }
+    cout << endl;
+
     return 0;
 }
