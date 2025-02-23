@@ -1,16 +1,30 @@
-// Write a C++ program to implement a recursive function to get the nth Fibonacci number.
+// Write a C++ program that takes a vector of strings and returns only those strings that contain a number(s).
 #include <iostream>
+#include <vector>
 using namespace std;
 
-long long fibonacci(int n) {
-    if (n <= 1) return n;
-    return fibonacci(n - 1) + fibonacci(n - 2);
+bool containsDigit(const string &s) {
+    for (char c : s) {
+        if (isdigit(c)) return true;
+    }
+    return false;
 }
 
 int main() {
-    int n;
-    cout << "Enter n: ";
-    cin >> n;
-    cout << n << "th Fibonacci number is " << fibonacci(n) << endl;
+    vector<string> vec = {"red", "green23", "1black", "white"};
+    vector<string> result;
+
+    for (auto &str : vec) {
+        if (containsDigit(str)) {
+            result.push_back(str);
+        }
+    }
+
+    cout << "Strings that contain a number(s):" << endl;
+    for (auto &r : result) {
+        cout << r << " ";
+    }
+    cout << endl;
+
     return 0;
 }
